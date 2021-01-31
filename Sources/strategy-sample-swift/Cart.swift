@@ -16,6 +16,10 @@ public class Cart {
     public init() {}
 
     public func shippingFee(_ shipperName: String, _ product: Product) throws -> Double {
-        return shippers[shipperName]!.calculateFee(product)
+        guard let shipper = shippers[shipperName]
+        else {
+            throw CartError("shipper not exist")
+        }
+        return shipper.calculateFee(product)
     }
 }
