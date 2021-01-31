@@ -14,7 +14,7 @@ public class Cart {
     public func shippingFee(_ shipper: String, _ product: Product) throws -> Double {
         switch shipper {
         case "black cat":
-            return blackCat.calculateFeeByBlackCat(product)
+            return blackCat.calculateFee(product)
         case "hsinchu":
             if product.getLength() > 100 || product.getWidth() > 100 || product.getHeight() > 100 {
                 return product.getSize() * 0.0000353 * 1100 + 500

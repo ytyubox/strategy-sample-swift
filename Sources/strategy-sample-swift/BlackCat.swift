@@ -10,7 +10,7 @@
 import Foundation
 public class BlackCat {
     public init() {}
-    internal func calculateFeeByBlackCat(_ product: Product) -> Double {
+    internal func calculateFee(_ product: Product) -> Double {
         if product.getWeight() > 20 {
             return 500
         } else {
