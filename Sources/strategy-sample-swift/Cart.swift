@@ -13,11 +13,7 @@ public class Cart {
     public func shippingFee(_ shipper: String, _ product: Product) throws -> Double {
         switch shipper {
         case "black cat":
-            if product.getWeight() > 20 {
-                return 500
-            } else {
-                return 100 + product.getWeight() * 10
-            }
+            return calculateFeedByBlackCat(product)
         case "hsinchu":
             if product.getLength() > 100 || product.getWidth() > 100 || product.getHeight() > 100 {
                 return product.getSize() * 0.0000353 * 1100 + 500
@@ -30,6 +26,14 @@ public class Cart {
             return Swift.min(feeByWeight, feeBySize)
         default:
             throw CartError("shipper not exist")
+        }
+    }
+
+    private func calculateFeeByBlackCat(_ product: Product) -> Double {
+        if product.getWeight() > 20 {
+            return 500
+        } else {
+            return 100 + product.getWeight() * 10
         }
     }
 }
