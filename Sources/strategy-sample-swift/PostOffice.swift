@@ -7,9 +7,9 @@
  *		Running on macOS 10.15
  */
 
-public class PostOffice {
+public class PostOffice: Shipper {
     public init() {}
-    internal func calculateFee(_ product: Product) -> Double {
+    public func calculateFee(_ product: Product) -> Double {
         let feeByWeight: Double = 80 + product.getWeight() * 10
         let feeBySize = product.getSize() * 0.0000353 * 1100
         return Swift.min(feeByWeight, feeBySize)

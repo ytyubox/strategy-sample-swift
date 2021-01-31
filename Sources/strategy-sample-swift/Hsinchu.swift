@@ -7,9 +7,9 @@
  *		Running on macOS 10.15
  */
 
-public class Hsinchu {
+public class Hsinchu: Shipper {
     public init() {}
-    internal func calculateFee(_ product: Product) -> Double {
+    public func calculateFee(_ product: Product) -> Double {
         if product.getLength() > 100 || product.getWidth() > 100 || product.getHeight() > 100 {
             return product.getSize() * 0.0000353 * 1100 + 500
         } else {
