@@ -11,6 +11,11 @@ public class Cart {
     public init() {}
 
     public func shippingFee(_ shipperName: String, _ product: Product) throws -> Double {
+        let shipper: Shipper = try getShipper(shipperName)
+        return shipper.calculateFee(product)
+    }
+
+    private func getShipper(_ shipperName: String) throws -> Shipper {
         let shipper: Shipper
         switch shipperName {
         case "black cat":
@@ -22,6 +27,6 @@ public class Cart {
         default:
             throw CartError("shipper not exist")
         }
-        return shipper.calculateFee(product)
+        return shipper
     }
 }
