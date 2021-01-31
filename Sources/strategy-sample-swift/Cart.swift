@@ -16,9 +16,11 @@ public class Cart {
             let shipper = BlackCat()
             return shipper.calculateFee(product)
         case "hsinchu":
-            return Hsinchu().calculateFee(product)
+            let shipper = Hsinchu()
+            return shipper.calculateFee(product)
         case "post office":
-            return PostOffice().calculateFee(product)
+            let shipper = PostOffice()
+            return shipper.calculateFee(product)
         default:
             throw CartError("shipper not exist")
         }
