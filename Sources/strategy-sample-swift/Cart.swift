@@ -17,13 +17,17 @@ public class Cart {
         case "black cat":
             return blackCat.calculateFee(product)
         case "hsinchu":
-            return hsinchu.calculateFeeByHsinchu(product)
+            return hsinchu.calculateFee(product)
         case "post office":
-            let feeByWeight: Double = 80 + product.getWeight() * 10
-            let feeBySize = product.getSize() * 0.0000353 * 1100
-            return Swift.min(feeByWeight, feeBySize)
+            return calculateFeeByPostOffice(product)
         default:
             throw CartError("shipper not exist")
         }
+    }
+
+    private func calculateFeeByPostOffice(_ product: Product) -> Double {
+        let feeByWeight: Double = 80 + product.getWeight() * 10
+        let feeBySize = product.getSize() * 0.0000353 * 1100
+        return Swift.min(feeByWeight, feeBySize)
     }
 }
