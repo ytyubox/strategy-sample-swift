@@ -32,4 +32,8 @@ public class Product {
     public func getWeight() -> Double {
         return weight
     }
+
+    internal func getSize() -> Double {
+        return getLength() * getWidth() * getHeight()
+    }
 }

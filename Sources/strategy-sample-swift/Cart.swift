@@ -19,23 +19,17 @@ public class Cart {
                 return 100 + product.getWeight() * 10
             }
         case "hsinchu":
-            let size: Double = getSize(product: product)
             if product.getLength() > 100 || product.getWidth() > 100 || product.getHeight() > 100 {
-                return size * 0.0000353 * 1100 + 500
+                return product.getSize() * 0.0000353 * 1100 + 500
             } else {
-                return size * 0.0000353 * 1200
+                return product.getSize() * 0.0000353 * 1200
             }
         case "post office":
             let feeByWeight: Double = 80 + product.getWeight() * 10
-            let size = getSize(product: product)
-            let feeBySize = size * 0.0000353 * 1100
+            let feeBySize = product.getSize() * 0.0000353 * 1100
             return Swift.min(feeByWeight, feeBySize)
         default:
             throw CartError("shipper not exist")
         }
-    }
-
-    private func getSize(product: Product) -> Double {
-        return product.getLength() * product.getWidth() * product.getHeight()
     }
 }
