@@ -8,9 +8,9 @@
  */
 
 import Foundation
-public class BlackCat {
+public class BlackCat: Shipper {
     public init() {}
-    internal func calculateFee(_ product: Product) -> Double {
+    public func calculateFee(_ product: Product) -> Double {
         if product.getWeight() > 20 {
             return 500
         } else {
