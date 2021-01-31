@@ -29,7 +29,7 @@ public class Cart {
             let feeByWeight: Double = 80 + weight * 10
             let size = length * width * height
             let feeBySize = size * 0.0000353 * 1100
-            return feeByWeight < feeBySize ? feeByWeight : feeBySize
+            return Swift.min(feeByWeight, feeBySize)
         default:
             throw CartError("shipper not exist")
         }
