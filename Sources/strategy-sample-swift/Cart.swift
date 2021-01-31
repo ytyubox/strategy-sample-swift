@@ -8,7 +8,9 @@ public class Cart {
         var errorDescription: String
     }
 
-    public func shippingFee(shipper: String, length: Double, width: Double, height: Double, weight: Double) throws -> Double {
+    public init() {}
+
+    public func shippingFee(_ shipper: String, _ length: Double, _ width: Double, _ height: Double, _ weight: Double) throws -> Double {
         if shipper == "black cat" {
             if weight > 20 {
                 return 500
