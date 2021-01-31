@@ -13,7 +13,8 @@ public class Cart {
     public func shippingFee(_ shipperName: String, _ product: Product) throws -> Double {
         switch shipperName {
         case "black cat":
-            return BlackCat().calculateFee(product)
+            let shipper = BlackCat()
+            return shipper.calculateFee(product)
         case "hsinchu":
             return Hsinchu().calculateFee(product)
         case "post office":
