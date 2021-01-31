@@ -9,18 +9,15 @@ public class Cart {
     }
 
     public init() {}
-    private let blackCat = BlackCat()
-    private let hsinchu = Hsinchu()
-    private let postOffice = PostOffice()
 
     public func shippingFee(_ shipper: String, _ product: Product) throws -> Double {
         switch shipper {
         case "black cat":
-            return blackCat.calculateFee(product)
+            return BlackCat().calculateFee(product)
         case "hsinchu":
-            return hsinchu.calculateFee(product)
+            return Hsinchu().calculateFee(product)
         case "post office":
-            return postOffice.calculateFee(product)
+            return PostOffice().calculateFee(product)
         default:
             throw CartError("shipper not exist")
         }
