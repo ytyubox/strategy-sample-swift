@@ -10,24 +10,24 @@ public class Cart {
 
     public init() {}
 
-    public func shippingFee(_ shipper: String, _ length: Double, _ width: Double, _ height: Double, _ weight: Double) throws -> Double {
+    public func shippingFee(_ shipper: String, _ product: Product) throws -> Double {
         switch shipper {
         case "black cat":
-            if weight > 20 {
+            if product.getWeight() > 20 {
                 return 500
             } else {
-                return 100 + weight * 10
+                return 100 + product.getWeight() * 10
             }
         case "hsinchu":
-            let size: Double = length * width * height
-            if length > 100 || width > 100 || height > 100 {
+            let size: Double = product.getLength() * product.getWidth() * product.getHeight()
+            if product.getLength() > 100 || product.getWidth() > 100 || product.getHeight() > 100 {
                 return size * 0.0000353 * 1100 + 500
             } else {
                 return size * 0.0000353 * 1200
             }
         case "post office":
-            let feeByWeight: Double = 80 + weight * 10
-            let size = length * width * height
+            let feeByWeight: Double = 80 + product.getWeight() * 10
+            let size = product.getLength() * product.getWidth() * product.getHeight()
             let feeBySize = size * 0.0000353 * 1100
             return Swift.min(feeByWeight, feeBySize)
         default:
